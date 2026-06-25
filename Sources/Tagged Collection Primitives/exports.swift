@@ -11,6 +11,6 @@
 
 // The bridge's public surface references `Tagged`, `Collection.\`Protocol\``,
 // and `Index`, so consumers see them through this module per [PKG-DEP-003].
-@_exported public import Tagged_Primitives
 @_exported public import Collection_Protocol_Primitives
 @_exported public import Index_Primitives
+@_exported public import Tagged_Primitives

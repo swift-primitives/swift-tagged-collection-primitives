@@ -25,7 +25,6 @@ let package = Package(
         .package(url: "https://github.com/swift-primitives/swift-tagged-primitives.git", branch: "main"),
         .package(url: "https://github.com/swift-primitives/swift-collection-primitives.git", branch: "main"),
         .package(url: "https://github.com/swift-primitives/swift-index-primitives.git", branch: "main"),
-        .package(url: "https://github.com/swift-primitives/swift-array-primitives.git", branch: "main"),
     ],
     targets: [
         // MARK: - Integration
@@ -42,6 +41,9 @@ let package = Package(
             name: "Tagged Collection Primitives Test Support",
             dependencies: [
                 "Tagged Collection Primitives",
+                // Test Support spine ([MOD-024]): the TS of the collection dep, which
+                // vends Collection.Fixture.Source — a Collection.`Protocol` conformer.
+                .product(name: "Collection Primitives Test Support", package: "swift-collection-primitives"),
             ],
             path: "Tests/Support"
         ),
@@ -51,7 +53,7 @@ let package = Package(
             dependencies: [
                 "Tagged Collection Primitives",
                 "Tagged Collection Primitives Test Support",
-                .product(name: "Array Primitives", package: "swift-array-primitives"),
+                .product(name: "Collection Primitives Test Support", package: "swift-collection-primitives"),
             ]
         ),
     ],

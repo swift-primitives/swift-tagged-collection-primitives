@@ -10,6 +10,7 @@
 // ===----------------------------------------------------------------------===//
 
 // Test Support shell per [MOD-011] / [MOD-024]. Re-exports the package's own
-// product; the upstream Test Support spine anchor is a follow-up if/when this
-// package graduates past the spike.
+// product plus the Collection Primitives Test Support spine anchor (the TS of
+// the collection dependency), which vends Collection.Fixture conformers.
 @_exported public import Tagged_Collection_Primitives
+@_exported public import Collection_Primitives_Test_Support

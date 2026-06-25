@@ -8,9 +8,9 @@
 // See LICENSE for license information
 //
 // ===----------------------------------------------------------------------===//
-public import Tagged_Primitives
 public import Collection_Protocol_Primitives
 public import Index_Primitives
+public import Tagged_Primitives
 
 // ============================================================================
 // MARK: - Tagged as a phantom-typed indexed collection view
@@ -37,7 +37,7 @@ public import Index_Primitives
 // fully qualified per [API-IMPL-019].
 extension Tagged
 where
-    Tag: ~Copyable,                                       // Escapable required: Index<Tag> demands it
+    Tag: ~Copyable & ~Escapable,
     Underlying: Collection.`Protocol`,
     Underlying.Element: Copyable,
     Underlying.Index == Index_Primitives.Index<Underlying.Element>
